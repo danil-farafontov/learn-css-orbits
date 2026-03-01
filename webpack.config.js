@@ -1,17 +1,30 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Import plugin
+const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+  entry: {
+    "index-scripts": './src/js/index.js',
+    "index-styles": './src/scss/index.scss',
+    "baremin-scripts": './src/js/baremin.js',
+    "baremin-styles": './src/scss/baremin.scss',
   },
+  output: {
+    filename: "js/[name].js",
+    path: path.resolve(__dirname, "./dist"),
+  },
+  plugins: [
+    new RemoveEmptyScriptsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css', // Output CSS filename
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.scss$/,
         use: [
-          'style-loader', // 3. Inject styles into DOM
+          MiniCssExtractPlugin.loader, // Use MiniCssExtractPlugin loader
           'css-loader',   // 2. Turn CSS into JS module
           'sass-loader',  // 1. Compile SCSS to CSS
         ],
