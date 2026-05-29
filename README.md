@@ -6,13 +6,13 @@ In this project we'll learn how to implement orbits animation via css
 
 ## urls
 
-orbits.local/dist - example
-orbits.local/dist/baremin.html - experiments
+orbits.local/dist - example  
+orbits.local/dist/baremin.html - experiments  
 
-/etc/hosts
-127.0.0.1    orbits.local
+/etc/hosts  
+127.0.0.1    orbits.local  
 
 ## webpack
 
-From root
+From root  
 npm run watch
