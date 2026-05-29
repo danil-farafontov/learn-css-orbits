@@ -7,8 +7,67 @@
     <link rel="stylesheet" href="css/baremin-styles.css">
 </head>
 <body>
-    <h1>Bare minimum</h1>
+    <h1>Bare minimum examples</h1>
+    <div class="container">
+        <div class="wrapper wrapper1">
+            <div class="explanation-text">
+                <ul>
+                    <li>
+                        Linear movement, loop
+                    </li>
+                    <li>
+                        Increase counter on click in the moving object
+                    </li>
+                </ul>
+            </div>
+            <div class="planet object1">
+            0
+            </div>
+        </div>
 
+        <div class="wrapper wrapper2">
+            <div class="explanation-text">
+                <ul>
+                    <li>
+                        The objects are moving in orbit. But actually it is orbit rotating and objects have fixed position on this orbit.
+                    </li>
+                </ul>
+            </div>
+            <div class="orbit orbit1">
+                <div class="planet object22">
+                </div>
+                <div class="planet object23">
+                </div>
+            </div>
+            <div class="orbit orbit2">
+                <div class="object24 planet">
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper3">
+            <div class="explanation-text">
+                <ul>
+                    <li>
+                        Tie object rotation to input range. Implemented on js.
+                    </li>
+                </ul>
+            </div>
+            <div class="orbit orbit1">
+                <div class="planet object31">
+                </div>
+            </div>
+            <div class="bottom-controls">
+                <input type="range" min="0" max="360" value=0 />
+            </div>
+        </div>
+
+        <div class="wrapper wrapper4">
+            <div class="planet object4">
+            </div>
+        </div>
+    </div>
+    <script src="js/libs/jquery-4.0.0.min.js"></script>
     <script src="js/baremin-scripts.js"></script>
 </body>
 </html>
