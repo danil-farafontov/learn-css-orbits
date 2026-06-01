@@ -1,6 +1,11 @@
+html {
+    scroll-timeline: --main-timeline;
+    scroll-behavior: smooth;
+}
 body {
     background-color: #12d1;
     height: 100vh;
+
 }
 h1 {
     text-align: center;
@@ -22,10 +27,10 @@ h1 {
     border: 1px solid white;
     border-radius: 50%;
     position: absolute;
+    width: 200px;
+    height: 200px;
     left: 50%; //Move 50% of wrapper2's width
     top: 50%;
-    width: 100px;
-    height: 100px;
     transform: translate(-50%, -50%); // Move back 50% of self width. In result it positioned in center.    
 }
 
@@ -48,18 +53,16 @@ h1 {
     border: 1px solid black;
     width: 50%;
     min-height: 400px;
+    max-height: 400px;
     background-color: grey;
     &.wrapper1 {
         .object1 {
             background-color: white;
-            width: 50px;
-            height: 50px;
-            
             position: relative;
-            top: 10px;
-            left: 10px;
-
-            animation: object1movement 15s linear infinite;
+            top: 25px;
+            left: 25px;
+        
+            animation: object1movement 10s linear infinite;
             animation-direction: alternate;
 
             /* center text */
@@ -158,8 +161,6 @@ h1 {
         position: relative;
 
         .orbit1 {
-            width: 200px;
-            height: 200px;
             transform: translate(0%, 0%); // cancel transform style from .orbit
             margin-left: -100px;
             margin-top: -100px;
@@ -175,6 +176,20 @@ h1 {
             }
         }
     }
+
+    &.wrapper4 {
+        position: relative;
+        height: 1000px;
+        max-height: 1000px;
+        .orbit1 {
+            top: 200px;
+            animation: scrollDrivenAnimation linear;
+            animation-timeline: scroll(root);
+            .object41 {
+                background-color: pink;
+            }
+        }
+    }
 }
 
 /*
@@ -182,12 +197,12 @@ animations
 */
 @keyframes object1movement {
     from {
-        top: 10px;
-        left: 10px;
+        top: 25px;
+        left: 25px;
     }
     to {
-        top: 340px;
-        left: calc(100% - 60px);
+        top: 375px;
+        left: calc(100% - 25px);
     }
 }
 
@@ -205,5 +220,14 @@ animations
     }
     to {
         transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes scrollDrivenAnimation {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(200deg);
     }
 }
